@@ -24,7 +24,7 @@ export enum AlignType {
 export interface IMermaidNode {
     id: string;
     text: string;
-    link: string | undefined;
+    link: string | Array<string> | undefined;
     next: Array<string>
     editable: boolean;
     group: string | undefined;
@@ -40,7 +40,7 @@ export class MermaidNode implements IMermaidNode {
 
     public id: string;
     public text: string;
-    public link: string | undefined = undefined;
+    public link: string | Array<string> | undefined = undefined;
     public next: Array<string> = []
     public editable: boolean;
     public group: string | undefined = undefined;
