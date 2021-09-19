@@ -4,6 +4,10 @@
   "private": false,
   "main": "src/index",
   "description": "coder-pager vue3 with NativeUI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luqizheng/vue3-mermaid"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
