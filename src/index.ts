@@ -1,6 +1,6 @@
 import { App } from 'vue'
-import pager from './components/index.vue';
-export {MermaidNode,AlignType} from './components/codes'
+import pager from './components/mermaid.vue';
+export * from './components/codes'
 export default {
 
     install(app: App): void {

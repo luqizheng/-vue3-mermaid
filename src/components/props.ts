@@ -1,6 +1,6 @@
 
-import { PropType, defineProps } from 'vue'
-import { AlignType, IMermaidNode, MermaidNode } from './codes';
+import { PropType } from 'vue'
+import { AlignType, IMermaidNode } from '../types';
 export const propSetting = {
     type: {
         type: Number as PropType<AlignType>,

@@ -6,8 +6,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { MermaidNode } from ".";
-import { EdgeType, IMermaidNode } from "./components/codes";
+import { EdgeType, IMermaidNode } from "./types";
+
 const data1 = [
   {
     id: "1",

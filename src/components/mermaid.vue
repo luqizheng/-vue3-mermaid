@@ -37,7 +37,7 @@ const buildCode = () => {
     return;
   }
   nextTick(() => {
-    var container = MermaidPanel.value;
+    var container = MermaidPanel.value
     if (container == null) throw Error("No container");
     container.removeAttribute("data-processed");
     mermaid.init(MermaidCode.value, container);
@@ -46,7 +46,7 @@ const buildCode = () => {
 
 watch(
   () => props.nodes,
-  (state) => {
+  () => {
     buildCode();
   },
   { deep: true }
