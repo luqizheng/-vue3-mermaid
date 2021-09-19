@@ -21,7 +21,7 @@ export const edges = [
 export enum AlignType {
     td, lr, bt, rl
 }
-export  interface IMermaidNode {
+export interface IMermaidNode {
     id: string;
     text: string;
     link: string | undefined;

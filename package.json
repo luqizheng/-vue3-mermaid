@@ -1,7 +1,9 @@
 {
-  "name": "vue3-mermaid",
+  "name": "vue3-mermaid-ts",
   "version": "0.1.0",
   "private": false,
+  "author": "luqizheng",
+  "license": "MIT",
   "main": "src/index",
   "description": "coder-pager vue3 with NativeUI",
   "repository": {
