@@ -1,39 +1,32 @@
 {
   "name": "vue3-mermaid-ts",
-  "version": "0.1.2",
-  "private": false,
-  "author": "luqizheng",
-  "license": "MIT",
-  "main": "src/index",
-  "description": "coder-pager vue3 with NativeUI",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/luqizheng/vue3-mermaid"
+  "version": "0.2.0",
+  "files": [
+    "dist"
+  ],
+  "types": "./lib/index.ts",
+  "main": "./dist/coder-member-components-vue3.umd.js",
+  "module": "./dist/coder-member-components-vue3.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/coder-member-components-vue3.es.js",
+      "require": "./dist/coder-member-components-vue3.umd.js"
+    }
   },
-  "typings": "src/types/index.ts",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
     "mermaid": "^8.12.1",
-    "vue": "^3.0.0"
+    "vue": "^3.2.25"
   },
   "devDependencies": {
     "@types/mermaid": "^8.2.7",
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
-    "naive-ui": "^2.18.2",
-    "typescript": "~4.1.5"
+    "@vitejs/plugin-vue": "^2.0.0",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vue-tsc": "^0.29.8"
   }
 }

@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import mermaid from './index'
-createApp(App).use(mermaid).mount('#app')
+import mermaind from '../lib'
+createApp(App).use(mermaind).mount('#app')
