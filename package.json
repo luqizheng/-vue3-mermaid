@@ -1,16 +1,18 @@
 {
   "name": "vue3-mermaid-ts",
-  "version": "0.2.1",
+  "version": "0.2.3",
+  "author": "luqizheng",
+  "homepage": "https://github.com/luqizheng/vue3-mermaid/edit/main/README.md",
   "files": [
     "dist"
   ],
   "types": "./lib/index.ts",
-  "main": "./dist/coder-member-components-vue3.umd.js",
-  "module": "./dist/coder-member-components-vue3.es.js",
+  "main": "./dist/vue3-mermaid-ts.umd.js",
+  "module": "./dist/vue3-mermaid-ts.es.js",
   "exports": {
     ".": {
-      "import": "./dist/coder-member-components-vue3.es.js",
-      "require": "./dist/coder-member-components-vue3.umd.js"
+      "import": "./dist/vue3-mermaid-ts.es.js",
+      "require": "./dist/vue3-mermaid-ts.umd.js"
     }
   },
   "scripts": {
@@ -19,7 +21,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "mermaid": "^8.12.1",
+    "mermaid": "^9.1.3",
     "vue": "^3.2.25"
   },
   "devDependencies": {
