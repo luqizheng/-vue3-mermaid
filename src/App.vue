@@ -1,7 +1,9 @@
 <template>
+  {{ graph }}
   <button type="button" @click="change(1)">Demo1</button>
   <button type="button" @click="change(2)">Demo2</button>
-  <vue3-mermaid :nodes="data" @node-click="nodeClick" />
+  <button type="button" @click="switchRender()">asdf</button>
+  <vue3-mermaid :nodes="data" @node-click="nodeClick" :type="graph" />
 </template>
 
 <script lang="ts">
@@ -61,6 +63,7 @@ const data2 = [
 export default defineComponent({
   name: "App",
   setup() {
+    const graph = ref(1);
     var a: any = null;
     let data = ref(a);
     data.value = data1;
@@ -74,7 +77,15 @@ export default defineComponent({
     const nodeClick = (id: any) => {
       alert(id);
     };
-    return { data, change, nodeClick };
+    const switchRender = () => {
+    
+      var index = graph.value + 1;
+      if (index > 4) {
+        index = 0;
+      }
+      graph.value = index;
+    };
+    return { data, change, nodeClick, graph, switchRender };
   },
 });
 </script>
