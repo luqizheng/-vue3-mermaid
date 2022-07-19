@@ -7,17 +7,27 @@ declare global {
     [key: string]: any;
   }
 }
+
+import {
+  onMounted,
+  defineEmits,
+  ref,
+  watch,
+  nextTick,
+  onUnmounted,
+  defineProps,
+} from "vue";
+import mermaidAPI from "mermaid/mermaidAPI";
+import mermaid from "mermaid";
+import { parseCode } from "./codes";
+import { propSetting } from "../props";
+
 function getUuid(): string {
   return Number(
     Math.random().toString().substr(3, length) + Date.now()
   ).toString(36);
 }
 
-import { onMounted, defineEmits, ref, watch, nextTick, onUnmounted } from "vue";
-import mermaidAPI from "mermaid/mermaidAPI";
-import mermaid from "mermaid";
-import { parseCode } from "./codes";
-import { propSetting } from "../props";
 const MermaidPanel = ref(null);
 const MermaidCode = ref(""); //  graph TD; A-->B; A-->C; B-->D; C-->D;
 
@@ -27,7 +37,7 @@ const functionName = `node_click_${elementID.value}`;
 var emits = defineEmits(["nodeClick"]);
 
 const initMermaid = () => {
-  window[functionName] = (id: string) => {
+  window[functionName] = function (id: string) {
     emits("nodeClick", id);
   };
   const config = Object.assign(
@@ -51,6 +61,7 @@ const buildCode = () => {
   }
 
   nextTick(() => {
+    console.log(MermaidCode.value);
     mermaid.mermaidAPI.render(
       "mermaid" + elementID.value,
       MermaidCode.value,
@@ -63,7 +74,10 @@ const buildCode = () => {
     );
   });
 };
-
+watch(
+  () => props.type,
+  () => buildCode()
+);
 watch(
   () => props.nodes,
   () => {
