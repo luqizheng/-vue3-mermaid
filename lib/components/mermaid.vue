@@ -61,7 +61,7 @@ const buildCode = () => {
   }
 
   nextTick(() => {
-    console.log(MermaidCode.value);
+   
     mermaid.mermaidAPI.render(
       "mermaid" + elementID.value,
       MermaidCode.value,
