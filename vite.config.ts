@@ -14,8 +14,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "lib/index.ts"),
-      name: "vue3-mermaid-ts",
-      fileName: (format) => `vue3-mermaid-ts.${format}.js`,
+      name: "coder-vue3-mermaid",
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
