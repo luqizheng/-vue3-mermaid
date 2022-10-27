@@ -1,6 +1,6 @@
 {
   "name": "vue3-mermaid-ts",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "author": "luqizheng",
   "homepage": "https://github.com/luqizheng/vue3-mermaid/edit/main/README.md",
   "files": [
@@ -15,9 +15,13 @@
       "require": "./dist/vue3-mermaid-ts.umd.js"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luqizheng/vue3-mermaid"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly",
     "preview": "vite preview"
   },
   "dependencies": {
