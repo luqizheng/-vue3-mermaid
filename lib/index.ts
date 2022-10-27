@@ -6,7 +6,7 @@ const ex = {
     install(app: App): void {
         app.component('vue3-mermaid', pager)
     },
-    mermaid: pager
+    vue3Mermaid: pager
 }
 
 export default ex;
