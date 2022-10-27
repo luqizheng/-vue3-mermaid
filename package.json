@@ -1,12 +1,12 @@
 {
   "name": "coder-vue3-mermaid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "luqizheng",
   "homepage": "https://github.com/luqizheng/vue3-mermaid/edit/main/README.md",
   "files": [
     "dist"
   ],
-  "types": "./lib/index.ts",
+  "types": "./lib/index.d.ts",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "exports": {
