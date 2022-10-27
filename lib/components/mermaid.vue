@@ -1,22 +1,17 @@
 <template>
   <div ref="MermaidPanel"></div>
 </template>
-<script lang="ts" setup>
+
+<script lang="ts">
 declare global {
   interface Window {
     [key: string]: any;
   }
 }
+</script>
 
-import {
-  onMounted,
-  defineEmits,
-  ref,
-  watch,
-  nextTick,
-  onUnmounted,
-  defineProps,
-} from "vue";
+<script lang="ts" setup>
+import { onMounted, ref, watch, nextTick, onUnmounted } from "vue";
 import mermaidAPI from "mermaid/mermaidAPI";
 import mermaid from "mermaid";
 import { parseCode } from "./codes";
@@ -61,7 +56,6 @@ const buildCode = () => {
   }
 
   nextTick(() => {
-   
     mermaid.mermaidAPI.render(
       "mermaid" + elementID.value,
       MermaidCode.value,
