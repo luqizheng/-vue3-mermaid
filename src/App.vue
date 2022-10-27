@@ -9,6 +9,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { EdgeType, IMermaidNode } from "../lib/types";
+import vue3Mermaid from "../lib/index";
 const data1 = [
   {
     id: "1",
@@ -62,6 +63,7 @@ const data2 = [
 ];
 export default defineComponent({
   name: "App",
+  components:{vue3Mermaid},
   setup() {
     const graph = ref(1);
     var a: any = null;
@@ -78,7 +80,6 @@ export default defineComponent({
       alert(id);
     };
     const switchRender = () => {
-    
       var index = graph.value + 1;
       if (index > 4) {
         index = 0;
