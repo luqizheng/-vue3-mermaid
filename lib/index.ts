@@ -4,5 +4,4 @@ pager.install = (app: App): void => {
     app.component('vue3-mermaid', pager)
 }
 
-
 export default pager;
