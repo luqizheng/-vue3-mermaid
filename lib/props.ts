@@ -1,4 +1,4 @@
-import mermaidAPI from "mermaid/mermaidAPI";
+import { MermaidConfig } from "mermaid";
 import { PropType } from "vue";
 import { AlignType, IMermaidNode } from "./types";
 export const propSetting = {
@@ -20,19 +20,19 @@ export const propSetting = {
     },
   },
   config: {
-    type: Object as PropType<mermaidAPI.Config>,
+    type: Object as PropType<MermaidConfig>,
     default(): any {
-      return {} as mermaidAPI.Config;
+      return {} as MermaidConfig;
     },
   },
   defaultConfig: {
-    type: Object as PropType<mermaidAPI.Config>,
+    type: Object as PropType<MermaidConfig>,
     default(): any {
       return {
         //theme: "default",
         //startOnLoad: true,
         securityLevel: "loose",
-      } as mermaidAPI.Config;
+      } as MermaidConfig;
     },
   },
   stopOnError: {

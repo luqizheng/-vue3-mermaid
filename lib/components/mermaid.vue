@@ -12,8 +12,7 @@ declare global {
 
 <script lang="ts" setup>
 import { onMounted, ref, watch, nextTick, onUnmounted } from "vue";
-import mermaidAPI from "mermaid/mermaidAPI";
-import mermaid from "mermaid";
+import mermaid, { MermaidConfig } from "mermaid";
 import { parseCode } from "./codes";
 import { propSetting } from "../props";
 
@@ -36,9 +35,9 @@ const initMermaid = () => {
     emits("nodeClick", id);
   };
   const config = Object.assign(
-    props.defaultConfig,
+    props.defaultConfig || {} ,
     props.config
-  ) as mermaidAPI.Config;
+  ) as MermaidConfig
 
   mermaid.mermaidAPI.initialize(config);
 };
