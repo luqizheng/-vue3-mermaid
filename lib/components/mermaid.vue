@@ -1,5 +1,5 @@
 <template>
-  <div ref="MermaidPanel" v-html="svgCode"></div>
+  <div ref="MermaidPanel"></div>
 </template>
 
 <script lang="ts">
@@ -18,12 +18,12 @@ import { propSetting } from "../props";
 
 function getUuid(): string {
   return Number(
-    Math.random().toString().substring(3, length) + Date.now()
+    Math.random().toString().substr(3, length) + Date.now()
   ).toString(36);
 }
 
-const MermaidPanel = ref(null);
-const svgCode = ref(""); //svg-code
+const MermaidPanel = ref<HTMLDivElement>();
+const MermaidCode = ref(""); //  graph TD; A-->B; A-->C; B-->D; C-->D;
 
 const props = defineProps(propSetting);
 const elementID = ref(getUuid());
@@ -48,17 +48,41 @@ onMounted(() => {
 onUnmounted(() => {
   window[functionName] = undefined;
 });
-const buildCode = async () => {
-  const mermaidCodes = parseCode(props.type, props.nodes, [], functionName);
-  const { svg } = await mermaid.render('graphDiv', mermaidCodes);
-  svgCode.value = svg;
+const buildCode = () => {
+  
+  if (!MermaidPanel.value)
+    return;
+  let width = MermaidPanel.value.clientWidth
+  let height = MermaidPanel.value.clientHeight;
+  MermaidPanel.value.style.minHeight = height+"px";
+  MermaidPanel.value.style.minWidth = width+"px";
 
+  MermaidCode.value = parseCode(props.type, props.nodes, [], functionName);
+  if (!MermaidCode.value) {
+    return;
+  }
+
+  nextTick(() => {
+    mermaid.mermaidAPI.render(
+      "mermaid" + elementID.value,
+      MermaidCode.value,
+      (svg: any, bindFunction: any) => {
+        if (!MermaidPanel.value) return;
+        var node = MermaidPanel.value as HTMLElement;
+        node.innerHTML = svg;
+        bindFunction(node);
+        
+        MermaidPanel.value.style.removeProperty('min-width');
+        MermaidPanel.value.style.removeProperty('min-height');
+      }
+    );
+  });
 };
-
-
 watch(
   () => props.type,
-  () => buildCode()
+  () => buildCode(), {
+  deep: true
+}
 );
 watch(
   () => props.nodes,

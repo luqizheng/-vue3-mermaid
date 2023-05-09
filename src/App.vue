@@ -3,7 +3,9 @@
   <button type="button" @click="change(1)">Demo1</button>
   <button type="button" @click="change(2)">Demo2</button>
   <button type="button" @click="switchRender()">asdf</button>
+ 
   <vue3-mermaid :nodes="data" @node-click="nodeClick" :type="graph" />
+
 </template>
 
 <script lang="ts">
